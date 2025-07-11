@@ -9,10 +9,11 @@
             text-align: center;
             margin: 20px;
         }
-        video {
+        img {
             width: 360px;
             height: 640px;
             margin-bottom: 20px;
+            border-radius: 10px;
         }
         input[type="text"] {
             padding: 8px;
@@ -31,16 +32,17 @@
             display: block;
             margin: 5px 0;
             text-align: left;
-            display: inline-block;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome!  thene awaits:</h1>
-    <image controls>
-        <source src="{{ url_for('static', filename='thene1.jpg') }}" type="image/jpg">
-        Your browser does not support the image tag.
-    </image>
+    <h1>Welcome! THENE awaits:</h1>
+
+    <!-- Fixed image usage -->
+    <img src="{{ url_for('static', filename='thene.jpg') }}" alt="Thene Image">
 
     <h1>Please answer these questions:</h1>
     <form method="POST">
@@ -64,10 +66,10 @@
         </div>
 
         <div class="question">
-            <p>3. What do you think thene stands for</p>
-            <label><input type="radio" name="q3" value="A" required> A. T ime he engaged never ended</label>
-            <label><input type="radio" name="q3" value="B"> B. The end</label>
-            <label><input type="radio" name="q3" value="C"> C. The one.</label>
+            <p>3. What do you think THENE stands for</p>
+            <label><input type="radio" name="q3" value="A" required> A. Time He Engaged Never Ended</label>
+            <label><input type="radio" name="q3" value="B"> B. The End</label>
+            <label><input type="radio" name="q3" value="C"> C. The One.</label>
         </div>
 
         <div class="question">
