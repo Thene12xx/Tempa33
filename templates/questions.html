@@ -8,48 +8,65 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background-color: #f9f9f9;
         }
-        img {
+        .tiktok-photo {
             width: 360px;
             height: 640px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
-            border-radius: 10px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
         }
         input[type="text"] {
             padding: 8px;
-            width: 250px;
+            width: 100%;
             margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
         }
         .question {
-            margin: 15px 0;
+            margin: 20px 0;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #555;
         }
         label {
             display: block;
-            margin: 5px 0;
-            text-align: left;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 6px 0;
+        }
+        h1 {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <h1>Welcome! THENE awaits:</h1>
 
-    <!-- Fixed image usage -->
-    <img src="{{ url_for('static', filename='thene1.jpg') }}" alt="Thene Image">
+    <!-- TikTok-style portrait image -->
+    <img src="{{ url_for('static', filename='thene1.jpg') }}" alt="Thene Image" class="tiktok-photo">
 
     <h1>Please answer these questions:</h1>
     <form method="POST">
-        <p>
-            <strong>Who are you? (Email, IG username, etc.)</strong><br>
+        <div class="question">
+            <strong>Who are you? (Email, IG username, etc.)</strong>
             <input type="text" name="user_info" placeholder="Type here..." required>
-        </p>
+        </div>
 
         <div class="question">
             <p>1. Why do you think you belong here?</p>
@@ -59,14 +76,14 @@
         </div>
 
         <div class="question">
-            <p>2. Do you feel special</p>
+            <p>2. Do you feel special?</p>
             <label><input type="radio" name="q2" value="A" required> A. Yes</label>
             <label><input type="radio" name="q2" value="B"> B. No</label>
             <label><input type="radio" name="q2" value="C"> C. I feel depressed</label>
         </div>
 
         <div class="question">
-            <p>3. What do you think THENE stands for</p>
+            <p>3. What do you think THENE stands for?</p>
             <label><input type="radio" name="q3" value="A" required> A. Time He Engaged Never Ended</label>
             <label><input type="radio" name="q3" value="B"> B. The End</label>
             <label><input type="radio" name="q3" value="C"> C. The One.</label>
@@ -84,7 +101,4 @@
             <input type="text" name="q5" placeholder="Your answer..." required>
         </div>
 
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+        <button type=
