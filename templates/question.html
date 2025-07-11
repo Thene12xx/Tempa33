@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer the Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        video {
+            width: 360px;
+            height: 640px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome! Watch this video:</h1>
+    <video controls>
+        <source src="{{ url_for('static', filename='thene.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>Please answer these questions:</h1>
+    <form method="POST">
+        <p>
+            <strong>Who are you? (Email, IG username, etc.)</strong><br>
+            <input type="text" name="user_info" placeholder="Type here..." required>
+        </p>
+
+        <div class="question">
+            <p>1. Why do you think you belong here?</p>
+            <label><input type="radio" name="q1" value="A" required> A. I am a THENE</label>
+            <label><input type="radio" name="q1" value="B"> B. Because why not</label>
+            <label><input type="radio" name="q1" value="C"> C. I'm chosen</label>
+        </div>
+
+        <div class="question">
+            <p>2. Do you feel special</p>
+            <label><input type="radio" name="q2" value="A" required> A. Yes</label>
+            <label><input type="radio" name="q2" value="B"> B. No</label>
+            <label><input type="radio" name="q2" value="C"> C. I feel depressed</label>
+        </div>
+
+        <div class="question">
+            <p>3. What do you think thene stands for</p>
+            <label><input type="radio" name="q3" value="A" required> A. T ime he engaged never ended</label>
+            <label><input type="radio" name="q3" value="B"> B. The end</label>
+            <label><input type="radio" name="q3" value="C"> C. The one.</label>
+        </div>
+
+        <div class="question">
+            <p>4. Visualise a pink horse in your head</p>
+            <label><input type="radio" name="q4" value="A" required> A. I CANT</label>
+            <label><input type="radio" name="q4" value="B"> B. ICAN</label>
+            <label><input type="radio" name="q4" value="C"> C. IC</label>
+        </div>
+
+        <div class="question">
+            <p>5. Any spell on time (e.g., magic):</p>
+            <input type="text" name="q5" placeholder="Your answer..." required>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
