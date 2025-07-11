@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - All Submissions</title>
+</head>
+<body>
+    <h1>Admin Dashboard - All Submissions</h1>
+
+    {% if submissions %}
+        {% for submission in submissions %}
+            <hr>
+            <h3>User: {{ submission.user }}</h3>
+            <ul>
+                {% for q, a, correct in zip(questions, submission.answers, submission.correctness) %}
+                    <li>
+                        <strong>{{ q.text }}</strong><br>
+                        User's answer: {{ a }}<br>
+                        {% if correct %}
+                            ✅ Correct
+                        {% else %}
+                            ❌ Incorrect. Correct answer: {{ correct_answers[loop.index0] }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No submissions yet.</p>
+    {% endif %}
+</body>
+</html>
