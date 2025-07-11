@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Answers</title>
+</head>
+<body>
+    <h1>Thank you, {{ user }}!</h1>
+    <p>Here are your answers and how you did:</p>
+    <ul>
+        {% for q, a, correct in zip(questions, answers, correctness) %}
+            <li>
+                <strong>{{ q.text }}</strong><br>
+                Your answer: {{ a }}<br>
+                {% if correct %}
+                    ✅ Correct!
+                {% else %}
+                    ❌ Incorrect. Correct answer: {{ correct_answers[loop.index0] }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
